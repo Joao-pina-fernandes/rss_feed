@@ -1,0 +1,80 @@
+#app {
+
+    position: relative;
+    width: 100%;
+
+}
+
+#header {
+    overflow: hidden;
+}
+
+.content{
+
+    width: 800px;
+    margin: auto;
+    display: block;
+
+}
+
+.row-margin{
+
+    margin-bottom: 1em;
+
+}
+
+#footer {}
+
+.btn-submit{
+    width: 100%;
+    display: block;
+}
+
+.search {
+
+    display: block;
+    margin: 20px auto 20px auto;
+    width: 300px;
+
+}
+
+.image {
+    display: block;
+}
+
+.center-text {
+
+    text-align: center;
+
+}
+
+/* media queries */
+@media screen and (max-width: 998px) {
+
+    .image {
+        margin-left: auto;
+        margin-right: auto
+    }
+
+}
+
+/* media queries */
+@media screen and (max-width: 768px) {
+
+    .search {
+        width:90%
+    }
+
+}
+
+
+/* media queries */
+@media screen and (min-width: 768px) {
+
+    .btn-submit{
+        display: inline-block;
+        width: 70px;
+    }
+
+}
+

@@ -32,6 +32,8 @@ var RSSReader = function(config){
  *
  * request @url [String} - method that uses the google rss api to get a rss feed based on a url.
  *
+ * updateData @entry - based on a rss entry feed creates and append articles to the dom.
+ *
  */
 RSSReader.prototype = {
 
@@ -47,12 +49,14 @@ RSSReader.prototype = {
 
     }, request : function (url) {
 
-        var feed = new google.feeds.Feed(url);
+        var controller = this,
+            feed = new google.feeds.Feed(url);
+
         feed.load(function(result) {
             if (!result.error) {
                 for (var i = 0; i < result.feed.entries.length; i++) {
                     var entry = result.feed.entries[i];
-
+                    controller.updateData(entry);
                     console.log("--- new entry from ", url, "------------");
                     console.log("content -", entry.contentSnippet);
                     console.log("title -", entry.title);
@@ -62,8 +66,34 @@ RSSReader.prototype = {
             }
         });
 
-    }
+    }, updateData: function(entry) {
 
+        var dom = document,
+            content = dom.getElementById("content"),
+            article = dom.createElement("article"),
+            image   = dom.createElement("img"),
+            heading = dom.createElement("h2"),
+            paragraph = dom.createElement("p"),
+            a = dom.createElement("a");
+
+        image.src = "http://placehold.it/150x150";
+        image.classList.add("image","col-md-3");
+        heading.innerHTML = entry.title;
+        heading.classList.add("heading","col-xs-12","col-md-9");
+        paragraph.innerHTML = entry.contentSnippet;
+        paragraph.classList.add("paragraph","col-xs-12","col-md-9","center-text");
+
+        article.classList.add("article","row","row-margin");
+
+        a.setAttribute("href", entry.link);
+        a.setAttribute("target", "_blank");
+        article.appendChild(image);
+        a.appendChild(heading);
+        article.appendChild(a);
+        article.appendChild(paragraph);
+
+        content.appendChild(article);
+    }
 
 };
 

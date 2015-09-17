@@ -2,13 +2,33 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>Best page ever!</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./style/app.css">
 </head>
 <body>
+    <div id="app">
+        <header id="header">
+            <div id="search" class="search">
+                <h1 class="center-text"><b>RSS Feeds</b></h1>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input id="rssValue" type="text" class="form-control" placeholder="Enter rss feed">
+                    </div>
+                    <input id="searchButton" type="submit" value="Search" class="btn btn-default btn-submit">
+                </form>
+            </div>
+        </header>
+        <section id="content" class="content"></section>
+        <footer id="footer"></footer>
+    </div>
 
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript" src="assets/controller.js"></script>
-<script type="text/javascript" src="assets/app.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="assets/controller.js"></script>
+    <script type="text/javascript" src="assets/app.js"></script>
 
 </body>
 </html>

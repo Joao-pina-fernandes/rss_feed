@@ -14,9 +14,9 @@
         <header id="header">
             <div id="search" class="search">
                 <h1 class="center-text"><b>RSS Feeds</b></h1>
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="form-group">
-                        <input id="rssValue" type="text" class="form-control" placeholder="Enter rss feed">
+                <form id="form" name = "form" class="navbar-form navbar-left" role="search">
+                    <div id="rssValueParent" class="form-group">
+                        <input id="rssValue" name="rssValue" type="text"  pattern="(http|https)?://.+" required class="form-control" placeholder="Enter rss feed">
                     </div>
                     <input id="searchButton" type="submit" value="Search" class="btn btn-default btn-submit">
                 </form>

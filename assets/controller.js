@@ -45,9 +45,23 @@ RSSReader.prototype = {
 
     }, getFromUrl : function (url){
 
-        this.request(url);
+        var controller = this,
+            xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+                var result = JSON.parse(xmlHttp.responseText);
+                if (!result.error) {
+                    for (var i = 0; i < result.feed.entries.length; i++) {
+                        controller.updateData(result.feed.entries[i]);
+                    }
+                }
+            }
+        };
 
-    }, request : function (url) {
+        xmlHttp.open("GET", url, true); // true for asynchronous
+        xmlHttp.send(null);
+
+    }, apiRequest : function (url) {
 
         var controller = this,
             feed = new google.feeds.Feed(url);

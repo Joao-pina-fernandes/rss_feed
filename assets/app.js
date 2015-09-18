@@ -38,8 +38,8 @@ win.onload = function(){
         submitButton.disabled = true;
         input.disabled = true;
 
-        rssReader.getFromUrl(input.value);
-
+        //rssReader.apiRequest(input.value);
+        rssReader.getFromUrl("modules/webservice.php/?feed=" + input.value);
     });
 
 };
